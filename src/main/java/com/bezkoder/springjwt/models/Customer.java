@@ -23,5 +23,7 @@ public class Customer extends BaseEntity {
     private String fullName;
     private String phone;
     private String address;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
     private Role role;
 }

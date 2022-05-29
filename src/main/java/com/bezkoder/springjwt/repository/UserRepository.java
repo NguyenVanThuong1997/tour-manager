@@ -10,13 +10,11 @@ import com.bezkoder.springjwt.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-  User findByLoginIdAndDeletedFalseAndLogoutIsFalse(String loginId);
-
-  User findByLoginIdAndDeletedFalse(String loginId);
+  Optional<User> findByLoginIdAndDeletedFalse(String loginId);
 
   User findByLoginId(String loginId);
 
-  Boolean existsByUsername(String username);
+  Boolean existsByLoginId(String loginId);
 
   Boolean existsByEmail(String email);
 }

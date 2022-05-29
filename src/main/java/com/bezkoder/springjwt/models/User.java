@@ -2,6 +2,7 @@ package com.bezkoder.springjwt.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,11 +16,12 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "users", 
     uniqueConstraints = { 
-      @UniqueConstraint(columnNames = "username"),
+      @UniqueConstraint(columnNames = "loginId"),
       @UniqueConstraint(columnNames = "email") 
     })
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class User extends BaseEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +45,7 @@ public class User extends BaseEntity {
 
   private String phone;
   private String address;
-  private Role role;
+
+  private String role;
 
 }
